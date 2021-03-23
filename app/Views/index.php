@@ -89,7 +89,7 @@
 <div class="contact-overlay"></div>
 <div style="bottom: 54px; right: 19px;" class="fixed-action-btn direction-top">
   <a class="btn-floating btn-large primary-text gradient-shadow contact-sidebar-trigger" href="#modal1">
-    <i class="material-icons">person_add</i>
+    <i class="material-icons " id="create">person_add</i>
   </a>
 </div>
 <!-- Add new contact popup Ends-->
@@ -146,16 +146,16 @@
               <th>Avatar</th>
               <th>Nom & Prénom</th>
               <th>Email</th>
-              <th>Numéro de Télephone</th>
+              <th></th>
               <th>Favoris</th>
               <th>Supprimer</th>
             </tr>
           </thead>
-          <tbody>
+         <tbody id='listContact'>
 
             <?php foreach ($contacts as $contact) {?>
 
-            <tr>
+            <tr id="contact-<?= $contact->id ?>">
               <td class="center-align contact-checkbox">
                 <label class="checkbox-label">
                   <input type="checkbox" name="foo" />
@@ -166,9 +166,9 @@
                     alt="avatar"></span></td>
               <td><?php echo $contact->last_Name." ".$contact->first_Name ; ?></td>
               <td><?php echo $contact->email ; ?></td>
-              <td><?php echo $contact->phone ; ?></td>
-              <td><span class="favorite"><i id="f-<?= $contact->id ?>" class="material-icons"> star_border </i></span></td>
-              <td><span><i id="d-<?= $contact->id ?>" class="material-icons delete">delete_outline</i></span></td>
+              <td></td>
+              <td><span class="favorite" ><i  data-ref="<?= $contact->id ?>" data-name="<?= $contact->last_Name ?>" class="material-icons"> star_border </i></span></td>
+              <td><span class="trash" ><i  data-ref="<?= $contact->id ?>"  class="material-icons delete">delete_outline</i></span></td>
             </tr>
               
               <?php } ?>

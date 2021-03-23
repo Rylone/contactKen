@@ -77,11 +77,45 @@ $(document).ready(function () {
 
    // Favorite star click
    $(".app-page .favorite i").on("click", function (e) {
-      console.log("J'ai cliqué sur favoris",e.target.id.split("-") );
+
+      /*********************1ere methode ***********************/
+      //id="f-<?= $contact->id ?>" dans la vue de l'element qui doit avoir l'id
+      // recuperer l'id de l'element cliqué
+      // var id = e.target.id.split("-") 
+      // console.log(id[1]);
+      /*************** fin 1*****************************/
+      /*************** 2ieme methode *****************************/
+      // a href="#" onclick="Addfavoris(<?= $contact->id ?>);"
+      /*************** fin 2*****************************/
+      /******************method 3***************************/
+      // pour concatener du string ou des variable dans un console.log() on peut utiliser des virgules
+   //  alert($(this).data("name")+" a ete ajouté au favoris")
+      /*******************3**********************************/
+//e.parents()
+
+      var param = {
+			id : $(this).data('ref')
+		};
+      postToApi("favori", param);
+
       e.preventDefault();
       $(this).toggleClass("amber-text");
    });
+   // function delete a partir de la dom.
+   $(".app-page .trash i").on("click", function (e) {
 
+      // je fais ma requete a ajax pour appeler la fonction delete
+      var param = {
+			id : $(this).data('ref')
+		};
+      postToApi("delete", param);       // Je supprime tout le tableau au clique en ciblant le tbody
+      // $("#listContact").remove() ;
+
+      // $("#contact-"+ $(this).data('ref')).remove() ;
+      console.log( $("#contact-"+ $(this).data('ref'))) ;
+      e.preventDefault();
+   });
+   
    // Toggle class of sidenav
    $("#contact-sidenav").sidenav({
       onOpenStart: function () {
@@ -218,3 +252,11 @@ if ($(window).width() < 900) {
    $(".sidebar-left.sidebar-fixed").removeClass("animate fadeUp animation-fast");
    $(".sidebar-left.sidebar-fixed .sidebar").removeClass("animate fadeUp");
 }
+
+/*
+ function Addfavoris(id){
+console.log( id) ;
+
+ }*/
+
+ 

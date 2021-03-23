@@ -12,16 +12,26 @@ class Formulaire extends BaseController {
 
         $rules = [
             'nom' => 'required',
-            'prenom' => 'required|min_length[3]|'
+            'prenom' => 'required|min_length[3]',
+            "email" => 'required',
         ];
-
                 
-            if($this->validate($rules)) { 
+            if($this->validate($rules)) 
+            { 
 
                 $nom = $this->request->getVar('nom');
-
                 $prenom = $this->request->getVar('prenom');
+                $email = $this->request->getVar('email');
+          
+                $contact = new ContactModel();
 
+                $dataSave = [
+                    "last_Name"=> $nom,
+                    "first_Name"=>$prenom,
+                    'email' => $email,
+                ];
+
+            $contact->save($dataSave);
             }
 
         $data = ['validation'=>$this->validator,
