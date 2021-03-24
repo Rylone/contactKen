@@ -193,43 +193,43 @@
       </div>
       <div class="divider"></div>
       <!-- form start -->
-      <form class="edit-contact-item mb-5 mt-5">
+      <form id="formContact" class="edit-contact-item mb-5 mt-5">
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix"> perm_identity </i>
-            <input id="first_name" type="text" class="validate">
+            <input name='firstName' type="text" class="validate">
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> perm_identity </i>
-            <input id="last_name" type="text" class="validate">
+            <input name='last_Name' type="text" class="validate">
             <label for="last_name">Last Name</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> business </i>
-            <input id="company" type="text" class="validate">
+            <input name="company" type="text" class="validate">
             <label for="company">Company</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> business_center </i>
-            <input id="business" type="text" class="validate">
+            <input name="business" type="text" class="validate">
             <label for="business">Job Title</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix"> email </i>
-            <input id="email" type="email" class="validate">
+            <input name="email" type="email" class="validate">
             <label for="email">Email</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> call </i>
-            <input id="phone" type="text" class="validate">
+            <input name="phone" type="text" class="validate">
             <label for="phone">Phone</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> note </i>
-            <input id="notes" type="text" class="validate">
+            <input name="notes" type="text" class="validate">
             <label for="notes">Notes</label>
           </div>
         </div>
