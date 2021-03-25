@@ -11,7 +11,7 @@ $(document).ready(function () {
       scrollY: calcDataTableHeight(),
       scrollCollapse: true,
       scrollX: false,
-      paging: true,
+      paging: false,
       responsive: true,
       lengthMenu: [15],
       aoColumns: [
@@ -28,7 +28,7 @@ $(document).ready(function () {
             bSortable: false
          },
          {
-            bSortable: false
+            bSortable: false	$('#listContact')
          }
       ],
       "fnInitComplete": function () {
@@ -99,7 +99,6 @@ $(document).ready(function () {
       postToApi("favori", param);
 
       e.preventDefault();
-      $(this).toggleClass("amber-text");
    });
    // function delete a partir de la dom.
    $(".app-page .trash i").on("click", function (e) {
@@ -178,13 +177,13 @@ $(document).ready(function () {
       addcontact.addClass("display-none");
       contactOverlay.addClass("show");
       contactComposeSidebar.addClass("show");
-      $("#first_name").val("Paul");
-      $("#last_name").val("Rees");
-      $("#company").val("Acme Corporation");
-      $("#business").val("Software Developer");
-      $("#email").val("paul.rees@domain.com");
-      $("#phone").val("+1-202-555-0112");
-      $("#notes").val("Do not disturb during work."); 0.2
+      $("#first_Name").val("");
+      $("#last_Name").val("");
+      $("#company").val("");
+      $("#business").val("");
+      $("#email").val("");
+      $("#phone").val("");
+      $("#notes").val(""); 0.2
       labelEditForm.addClass("active");
    }).on("click", ".checkbox-label,.favorite,.delete", function (e) {
       e.stopPropagation();

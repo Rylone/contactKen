@@ -154,11 +154,12 @@
          <tbody id='listContact'>
 
             <?php foreach ($contacts as $contact) {?>
+          
 
-            <tr id="contact-<?= $contact->id ?>">
+            <tr class='up list-tr' data-id ="<?= $contact->id ?>">
               <td class="center-align contact-checkbox">
                 <label class="checkbox-label">
-                  <input type="checkbox" name="foo" />
+                  <input type="checkbox" name="foo" data-group ="ici" />
                   <span></span>
                 </label>
               </td>
@@ -174,7 +175,11 @@
               <?php } ?>
           
           </tbody>
+          <!-- <button class='trash' <?php ?>>X</button> -->
         </table>
+        <button class='page_btn newpreced'>Precedent</button>
+        <button class='page_btn newnext'>Next</button>
+
       </div>
     </div>
   </div>
@@ -197,39 +202,39 @@
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix"> perm_identity </i>
-            <input name='firstName' type="text" class="validate">
+            <input name='first_Name' type="text" id='first_Name'  value="ok" class="validate">
             <label for="first_name">First Name</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> perm_identity </i>
-            <input name='last_Name' type="text" class="validate">
+            <input name='last_Name' type="text" id="last_Name" class="validate">
             <label for="last_name">Last Name</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> business </i>
-            <input name="company" type="text" class="validate">
+            <input name="company" type="text" id='company'class="validate">
             <label for="company">Company</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> business_center </i>
-            <input name="business" type="text" class="validate">
+            <input name="business" type="text" id='business' class="validate">
             <label for="business">Job Title</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix"> email </i>
-            <input name="email" type="email" class="validate">
+            <input name="email" type="email" id='email' class="validate">
             <label for="email">Email</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> call </i>
-            <input name="phone" type="text" class="validate">
+            <input name="phone" type="text" id='phone' class="validate">
             <label for="phone">Phone</label>
           </div>
           <div class="input-field col s12">
             <i class="material-icons prefix"> note </i>
-            <input name="notes" type="text" class="validate">
+            <input name="notes" id='note' type="text" class="validate">
             <label for="notes">Notes</label>
           </div>
         </div>
@@ -238,7 +243,7 @@
         <button class="btn-small waves-effect waves-light add-contact">
           <span>Add Contact</span>
         </button>
-        <button class="btn-small waves-effect waves-light update-contact display-none">
+        <button class="btn-small waves-effect waves-light update-contact display-none" data>
           <span>Update Contact</span>
         </button>
       </div>
