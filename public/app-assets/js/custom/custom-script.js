@@ -30,8 +30,7 @@ function postToApi(url, dataParams)
 	})
 
 }
-
-$('.add-contact').on('click', function (e) {
+$(document).on("click", ".add-contact", function (e) {
 	e.preventDefault();
 	var param = $("#formContact").serialize();
 	postToApi("create", param);
@@ -75,8 +74,9 @@ $(".previous").on('click', function(e){
 	 pagination(page)
 })
 /*******************************edit contact ************************************/
-$(".up").on('click', function(e){
-idContact = $(this).data('id');
+$(document).on("click", ".dataTables_scrollBody tr", function (e) {
+idContact += $(this).data('id');
+console.log(idContact)
 var param = {
 		id : $(this).data('id')
 	};
@@ -99,8 +99,7 @@ var param = {
 	})
 })
 
-$(".update-contact").on('click', function(e){
-	//console.log( $(this).data('id'));
+$(document).on("click", ".update-contact", function (e) {	//console.log( $(this).data('id'));
 	console.log(idContact);
 	var param =  "id="+idContact+"&"+ $("#formContact").serialize()
 	console.log(param)
@@ -137,7 +136,7 @@ function pagination(page)
 			$('#listContact').html('');
 			res.forEach(data=>{
 				$('#listContact').append(
-					`<tr class='up list-tr' data-id ="90">
+					`<tr class='up list-tr' data-id ="${data.id}">
 					<td class="center-align contact-checkbox">
 						<label class="checkbox-label">
 							<input type="checkbox" name="foo" data-group ="ici" />
@@ -148,8 +147,8 @@ function pagination(page)
 					<td>${data.last_Name+' '+data.first_Name}</td>
 					<td>${data.email}</td>
 					<td></td>
-					<td><span class="favorite" ><i  data-ref="90" data-name="English" class="material-icons"> star_border </i></span></td>
-					<td><span class="trash" ><i  data-ref="90"  class="material-icons delete">delete_outline</i></span></td>
+					<td><span class="favorite" ><i  data-ref="${data.id}" data-name="English" class="material-icons"> star_border </i></span></td>
+					<td><span class="trash" ><i  data-ref="${data.id}"  class="material-icons delete">delete_outline</i></span></td>
 					</tr>`
 				)
 			})

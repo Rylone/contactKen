@@ -110,17 +110,24 @@ class Api extends BaseController
             'last_Name' => 'required',
             'phone'     => 'required'
         ];
-        
+        $id = $this->request->getVar('id');
+        $contact = $this->contactsModel->where('id',$id)->first();
+
+        if (!empty($contact)) {
+
+            $etatAction = ['response'=>$contact] ;
+        }
+
+      
         if ($this->validate($rules)) {
             
-            $id = $this->request->getVar('id');
+            // $id = $this->request->getVar('id');
     
-            $contact = $this->contactsModel->where('id',$id)->first();
-                    
+            // $contact = $this->contactsModel->where('id',$id)->first();
+            
                 if (!empty($contact)) {
 
                     $last_Name = $this->request->getVar('last_Name');
-                    
                     $phone = $this->request->getVar('phone');
                 
                     $dataSave = [

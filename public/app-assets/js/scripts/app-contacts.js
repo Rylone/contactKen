@@ -28,7 +28,7 @@ $(document).ready(function () {
             bSortable: false
          },
          {
-            bSortable: false	$('#listContact')
+            bSortable: false
          }
       ],
       "fnInitComplete": function () {
@@ -99,6 +99,7 @@ $(document).ready(function () {
       postToApi("favori", param);
 
       e.preventDefault();
+      $(this).toggleClass("amber-text");
    });
    // function delete a partir de la dom.
    $(".app-page .trash i").on("click", function (e) {
